@@ -1,5 +1,5 @@
 import { useEffect, useRef } from 'react'
-import { Code2, Globe, Smartphone, GitBranch, Shield, Cpu } from 'lucide-react'
+import { Code2, Database, Activity, Smartphone, GitBranch, Cpu } from 'lucide-react'
 
 const services = [
   {
@@ -8,12 +8,18 @@ const services = [
     desc: 'End-to-end web application development using modern frameworks and best practices for performance, scalability, and maintainability.',
     tags: ['React', 'Node.js', 'TypeScript'],
   },
-  {
-    icon: Globe,
-    title: 'Web Architecture',
-    desc: 'Designing robust, scalable system architectures that handle real-world load with clean separation of concerns and fault tolerance.',
-    tags: ['Microservices', 'REST', 'GraphQL'],
+   {
+    icon: Database,
+    title: 'ML System Design',
+    desc: 'Designing end-to-end ML pipelines and distributed systems capable of handling high-throughput data processing and real-time inference.',
+    tags: ['Data Pipelines', 'Model Serving', 'Scalability'],
     featured: true,
+  },
+ {
+    icon: Activity,
+    title: 'Model Interpretability',
+    desc: 'Ensuring model transparency and robustness by auditing decision-making layers and mitigating bias in predictive systems.',
+    tags: ['SHAP/LIME', 'Adversarial Defense', 'XAI'],
   },
   {
     icon: Smartphone,
@@ -26,12 +32,6 @@ const services = [
     title: 'DevOps & CI/CD',
     desc: 'Streamlined deployment pipelines, containerisation, and infrastructure as code to ship confidently and recover fast.',
     tags: ['Docker', 'K8s', 'GitHub Actions'],
-  },
-  {
-    icon: Shield,
-    title: 'Security Auditing',
-    desc: 'Identifying vulnerabilities in authentication flows, data handling, and third-party integrations before they become incidents.',
-    tags: ['OWASP', 'Pen Testing', 'JWT'],
   },
   {
     icon: Cpu,

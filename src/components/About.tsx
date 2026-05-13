@@ -1,18 +1,20 @@
 import { useEffect, useRef } from 'react'
-import { CheckCircle2, Code2, Layers, Zap } from 'lucide-react'
+import { Brain, Cpu, CheckCircle2, Network, Layers } from 'lucide-react'
 import avatar2 from '../assets/avatar2.png'
 
 const skills = [
-  'TypeScript', 'React', 'Node.js', 'Java', 'Python',
-  'PostgreSQL', 'Redis', 'Docker', 'Kubernetes', 'C',
-  'React-Native', 'WebSockets', 'CI/CD', 'System Design', 'Flutter'
+  'TypeScript', 'React', 'Node.js', 'Java', 'Python', 'MongoDB', 'AWS', 'Azure', 'MySQL',
+  'PostgreSQL', 'Redis', 'Docker', 'Kubernetes', 'C', 'Pandas/NumPy', 'Scikit-learn', 'Firebase',
+  'React-Native', 'WebSockets', 'CI/CD', 'System Design', 'Distributed Systems', 'Flutter', 'React Native',
 ]
 
+
 const highlights = [
-  { icon: Code2, label: 'Clean Architecture', desc: 'SOLID principles, DRY code, meaningful abstractions' },
-  { icon: Layers, label: 'Full Stack Depth', desc: 'Frontend to infrastructure — I own the entire stack' },
-  { icon: Zap, label: 'Performance First', desc: 'Sub-100ms APIs, 95+ Lighthouse scores, optimized builds' },
+  { icon: Brain, label: 'ML Operations', desc: 'End-to-end model lifecycle: Training, validation, and explainability' },
+  { icon: Network, label: 'Distributed Systems', desc: 'High-throughput backends, fault tolerance, and scalable infrastructure' },
+  { icon: Cpu, label: 'Optimization & Latency', desc: 'Low-latency inference, model quantization, and memory-efficient code' },
 ]
+
 
 export default function About() {
   const sectionRef = useRef<HTMLDivElement>(null)
@@ -57,11 +59,11 @@ export default function About() {
             </div>
 
             <p className="font-body text-ash leading-relaxed text-base">
-              I'm Dave — a software engineer with building production-grade systems that scale. My work spans everything from React frontends to distributed backend services, and I care deeply about the craft of engineering: clean code, thoughtful architecture, and systems that are a joy to maintain.
+              I'm Dave — a software engineer focused on building production-grade ML systems and scalable data infrastructure. My work spans the lifecycle of intelligent software, from optimizing high-throughput backends to deploying performant deep learning models in distributed environments.
             </p>
 
             <p className="font-body text-ash leading-relaxed text-base">
-              I've shipped products used by thousands of users across fintech, SaaS, and developer tooling. I thrive in environments where technical precision and creative problem-solving intersect.
+              I care deeply about the intersection of system design and algorithmic efficiency: building robust pipelines, ensuring model explainability, and architecting systems that handle data at scale. I thrive where technical precision meets the complexity of machine learning operations.
             </p>
 
             <div className="space-y-4">

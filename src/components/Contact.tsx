@@ -67,7 +67,7 @@ export default function Contact() {
 
             <div className="space-y-4">
               {[
-                { icon: Mail, label: 'Email', value: 'dave@engineer.dev' },
+                { icon: Mail, label: 'Email', value: 'omotoyedave4@gmail.com' },
                 { icon: MapPin, label: 'Location', value: 'Lagos, Nigeria' },
               ].map(({ icon: Icon, label, value }) => (
                 <div key={label} className="flex items-center gap-4 p-4 rounded-2xl glass-card border border-white/6">

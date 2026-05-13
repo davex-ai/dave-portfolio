@@ -3,7 +3,7 @@ import { ArrowDown, Github, Linkedin, Twitter, Mail } from 'lucide-react'
 import avatar1 from '../assets/avatar1.png'
 import avatar2 from '../assets/avatar2.png'
 
-const roles = ['Software Engineer', 'Full Stack Developer', 'Systems Architect', 'Open Source Contributor']
+const roles = ['Software Engineer', 'Machine Learning Engineer', 'Systems Architect', 'Open Source Contributor']
 
 export default function Hero() {
   const [roleIndex, setRoleIndex] = useState(0)
@@ -142,7 +142,7 @@ export default function Hero() {
             </div>
 
             <p className="font-body text-ash text-base lg:text-lg leading-relaxed max-w-md">
-              Crafting scalable systems and intuitive interfaces that push the boundaries of what software can achieve. Precision-driven. Detail-obsessed.
+              Building data-driven systems and ML-integrated software that solve complex problems at scale. Focused on model efficiency and system reliability. Precision-driven. Detail-obsessed.
             </p>
 
             <div className="flex flex-wrap gap-4 pt-2">
@@ -167,9 +167,9 @@ export default function Hero() {
 
             <div className="flex items-center gap-6 pt-4">
               {[
-                { icon: Github, href: '#' },
+                { icon: Github, href: 'https://github.com/davex-ai' },
                 { icon: Linkedin, href: '#' },
-                { icon: Twitter, href: '#' },
+                { icon: Twitter, href: 'https://x.com/dayvex_ai' },
                 { icon: Mail, href: '#contact' },
               ].map(({ icon: Icon, href }, i) => (
                 <a
