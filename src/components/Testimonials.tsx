@@ -73,7 +73,8 @@ export default function Certificates() {
         <div className="section-reveal">
           <div className="grid sm:grid-cols-2 lg:grid-cols-3 gap-4 mb-10">
             {visible.map((cert, i) => (
-              
+
+              <a
                 key={i}
                 href={cert.link}
                 target="_blank"
