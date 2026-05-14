@@ -6,7 +6,7 @@ import Hero from './components/Hero'
 import About from './components/About'
 import Services from './components/Services'
 import Projects from './components/Projects'
-import Testimonials from './components/Testimonials'
+import Certificates from './components/Certificates.tsx'
 import Contact from './components/Contact'
 import Footer from './components/Footer'
 
@@ -32,7 +32,7 @@ export default function App() {
         <div className="section-divider" />
         <Projects />
         <div className="section-divider" />
-        <Testimonials />
+        <Certificates />
         <div className="section-divider" />
         <Contact />
       </main>
