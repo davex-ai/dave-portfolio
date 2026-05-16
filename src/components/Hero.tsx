@@ -157,11 +157,11 @@ export default function Hero() {
                 <ArrowDown size={14} />
               </button>
               <a
-                href="#"
+                href="https://drive.google.com/file/d/1YSwtOWPSpYSvxUbZ4yhzsZOs6b28B2zV/view?usp=sharing"
                 className="btn-outline px-8 py-3.5 rounded-full text-sm font-semibold"
                 download
               >
-                Download CV
+                View Resume
               </a>
             </div>
 
