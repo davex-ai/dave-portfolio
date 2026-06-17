@@ -1,5 +1,5 @@
 import { useEffect, useRef, useState } from 'react'
-import { ExternalLink, Github, ArrowRight } from 'lucide-react'
+import { ExternalLink, Github, ArrowRight, ChevronDown } from 'lucide-react'
 
 // ─── Types ────────────────────────────────────────────────────────────────────
 const CATEGORIES = ['All', 'Infra', 'Backend', 'Mobile', 'AI / ML', 'Research', 'Quant'] as const
@@ -325,12 +325,35 @@ function PatternSVG({ type, id }: { type: Project['pattern']; id: string }) {
 }
 
 // ─── Component ────────────────────────────────────────────────────────────────
+const PAGE_SIZE = 6
+
 export default function Projects() {
   const sectionRef = useRef<HTMLDivElement>(null)
   const [filter, setFilter] = useState<Category>('All')
+  const [visibleCount, setVisibleCount] = useState(PAGE_SIZE)
 
   const filtered = filter === 'All' ? projects : projects.filter(p => p.category === filter)
+  const visibleProjects = filtered.slice(0, visibleCount)
+  const hasMore = visibleCount < filtered.length
 
+  // Reset back to the first page whenever the category changes, so switching
+  // categories doesn't carry over an expanded count from a previous one.
+  useEffect(() => {
+    setVisibleCount(PAGE_SIZE)
+  }, [filter])
+
+  // ─── The actual bug ────────────────────────────────────────────────────────
+  // `.section-reveal` starts at opacity: 0 in globals.css and only becomes visible
+  // once this observer adds the `.revealed` class to it. The original effect ran
+  // ONCE on mount (dependency array `[]`) and only ever observed the cards that
+  // existed in the DOM at that moment (the initial "All" set). Every time `filter`
+  // (or now `visibleCount`) changes, React swaps in a brand-new set of card
+  // elements — but since the observer never re-ran, those new elements were never
+  // observed, so they never got `.revealed` and stayed permanently invisible.
+  // That's why switching categories displayed nothing until a full page reload
+  // remounted the section with the observer wired to the cards already on screen.
+  // Fixing it just means re-running this effect whenever the rendered card set
+  // can change.
   useEffect(() => {
     const observer = new IntersectionObserver(
       (entries) => {
@@ -343,7 +366,7 @@ export default function Projects() {
     const els = sectionRef.current?.querySelectorAll('.section-reveal')
     els?.forEach((el) => observer.observe(el))
     return () => observer.disconnect()
-  }, [])
+  }, [filter, visibleCount])
 
   return (
     <section id="projects" ref={sectionRef} className="relative py-32 overflow-hidden">
@@ -413,7 +436,7 @@ export default function Projects() {
 
         {/* Cards Grid */}
         <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-5">
-          {filtered.map((proj, i) => {
+          {visibleProjects.map((proj, i) => {
             const accent = ACCENT[proj.category]
             return (
               <div
@@ -530,6 +553,20 @@ export default function Projects() {
             )
           })}
         </div>
+
+        {/* See More — reveals the next page within the current category */}
+        {hasMore && (
+          <div className="text-center mt-8 section-reveal">
+            <button
+              type="button"
+              onClick={() => setVisibleCount((c) => c + PAGE_SIZE)}
+              className="border border-white/10 text-ash hover:text-pearl hover:border-white/25 transition-all duration-300 px-8 py-3.5 rounded-full text-sm font-mono inline-flex items-center gap-2"
+            >
+              See {Math.min(PAGE_SIZE, filtered.length - visibleCount)} More
+              <ChevronDown size={14} />
+            </button>
+          </div>
+        )}
 
         {/* See All */}
         <div className="text-center mt-12 section-reveal">
