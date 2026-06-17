@@ -18,9 +18,9 @@ export default function Footer() {
 
           <div className="flex items-center gap-4">
             {[
-              { icon: Github, href: '#' },
-              { icon: Linkedin, href: '#' },
-              { icon: Twitter, href: '#' },
+              { icon: Github, href: 'https://github.com/davex-ai' },
+              { icon: Linkedin, href: 'https://www.linkedin.com/in/davex-ai' },
+              { icon: Twitter, href: 'https://x.com/dayvex-ai' },
               { icon: Mail, href: '#contact' },
             ].map(({ icon: Icon, href }, i) => (
               <a
