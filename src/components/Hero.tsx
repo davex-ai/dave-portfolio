@@ -168,7 +168,7 @@ export default function Hero() {
             <div className="flex items-center gap-6 pt-4">
               {[
                 { icon: Github, href: 'https://github.com/davex-ai' },
-                { icon: Linkedin, href: '#' },
+                { icon: Linkedin, href: 'https://www.linkedin.com/in/davex-ai/' },
                 { icon: Twitter, href: 'https://x.com/dayvex_ai' },
                 { icon: Mail, href: '#contact' },
               ].map(({ icon: Icon, href }, i) => (
